@@ -1,1 +1,61 @@
+Project - Real-Time Astronomical Image Classification using Jetson Nano
+
+Project Introduction - Accurate and efficient classification of celestial objects is essential for advancing space research and enabling real-time data analysis. Autonomous decision-making in satellite missions is critical for real-time responses.
+
+
+Project Goal - The goal of this project is to develop a low-power, high-performance AI-based classification system on Jetson Nano to enable real-time classification of celestial objects, supporting space research and autonomous decision-making.
+
+Dataset Details - 
+Name: Megacosm_2 & Megacosm_1
+Type: Open-Source Dataset from Roboflow Universe
+Number of Images: 393
+Number of Classes: 11
+
+Classes - 
+* Asteroid
+* Black Holes
+* Comets
+* Meteoroid
+* Meteor
+* Nebulae
+* Planet
+* Satellites
+* Star Clusters
+* Stars
+
+
+The datasets "Megacosm\_2" and "Megacosm\_1" were combined together after correctly curating and mapping the classes, and removing any duplicates. 
+Initially, the project was conducted with just two classes: Planets and Galaxies. Afterward, a third class, Nebulae, was added. Eventually, the classification task was expanded to include 11 classes in total.
+During experimentation, an attempt was made to classify not just galaxies but also the specific types of galaxies. However, this approach led to poor performance as the model struggled to distinguish among the 11 classes. Therefore, the idea of galaxy type classification was dropped, and the final model was designed to classify 11 general celestial object classes.
+
+
+Model Architecture - 
+
+The model used for classification is the YOLOv8 (Ultralytics) object detection model, specifically the YOLOv8n (Nano) variant optimized for lightweight, real-time performance on Jetson Nano.
+
+Base Model: YOLOv8 (Ultralytics)
+Model Variant: YOLOv8n (Nano)
+Model Type: Object Detection
+Total Layers: 72
+Parameters: 11,129,841
+
+
+Evaluation and Metrics - 
+mAP\@0.5: 0.590
+mAP\@0.5:0.95: 0.251
+Inference Speed: 43.2 ms per image
+
+Class-Wise Performance - 
+Best: Planets (0.861), Asteroids (0.853), Meteors (0.995)
+Moderate: Satellites (0.913), Black Holes (0.39), Comets (0.603)
+Challenging: Stars (0.0377), Star Clusters (0.269)
+
+
+References - 
+1. Viso.ai. (n.d.). YOLOv8 Guide: Real-Time Object Detection with YOLOv8. Viso Suite. Retrieved 12-04-2025, from https://viso.ai/deep-learning/yolov8-guide/
+2. Priyanka. (n.d.). Megacosm_new [Data set]. Roboflow Universe. Retrieved May 14, 2025, from https://universe.roboflow.com/priyanka-1uoyf/megacosm_new
+3. Skalski, P. (2023, January 10). How to Train YOLOv8 Object Detection on a Custom Dataset. Roboflow Blog. Retrieved May 14, 2025, from https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/
+4. Rath, S. (2023, January 31). Train YOLOv8 on Custom Dataset – A Complete Tutorial. LearnOpenCV. Retrieved May 14, 2025, from https://learnopencv.com/train-yolov8-on-custom-dataset/
+5. Torres, J. (2024, March 20). YOLOv8 Metrics: Unveiling the Secrets of YOLOv8 Metrics. Yolov8.org. Retrieved May 14, 2025, from https://yolov8.org/unveiling-the-secrets-of-yolov8-metrics/
+
 
